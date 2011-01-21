@@ -1,0 +1,24 @@
+<% title "List" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @list.name %>
+</p>
+<p>
+  <strong>List Date:</strong>
+  <%= @list.list_date %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @list.description %>
+</p>
+<p>
+  <strong>Assigned To:</strong>
+  <%= @list.user.username  %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_list_path(@list) %> |
+  <%= link_to "Destroy", @list, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", lists_path %>
+</p>

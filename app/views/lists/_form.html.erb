@@ -1,0 +1,20 @@
+<%= form_for @list do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :list_date %><br />
+    <%= f.date_select :list_date %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>  
+  <p>
+    <%= f.label :assigned_to %><br />
+    <%= f.collection_select :assigned_to, User.where(:created_by => current_user.id), :id, :username %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
