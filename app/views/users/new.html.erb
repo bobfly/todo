@@ -1,4 +1,14 @@
-<% title "New User" %>
-
-<%= render 'form' %>
-
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">      
+    </ul>
+  </div>          
+  <div class="content">            
+    <h2 class="title"><%= t("web-app-theme.signup", :default => "Signup")%></h2>
+    <div class="inner">
+      <%= form_for :user, :url => users_path, :html => { :class => :form } do |f| -%>
+        <%= render :partial => "form", :locals => {:f => f} %>
+      <% end -%>
+    </div>
+  </div>
+</div>

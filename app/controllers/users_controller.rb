@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = "Successfully updated user."
-      redirect_to user_url
+      redirect_to lists_path
     else
       render :action => 'edit'
     end

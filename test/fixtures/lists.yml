@@ -11,3 +11,18 @@ two:
   description: MyString
   user_id: 1
   assigned_to: 1
+
+# == Schema Information
+#
+# Table name: lists
+#
+#  id          :integer         not null, primary key
+#  name        :string(255)
+#  list_date   :date
+#  description :string(255)
+#  user_id     :integer
+#  assigned_to :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+

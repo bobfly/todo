@@ -1,24 +1,39 @@
-<% title "List" %>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", lists_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_list_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", list_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.list.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
+          <%= @list.name %>
+        </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @list.name %>
-</p>
-<p>
-  <strong>List Date:</strong>
-  <%= @list.list_date %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @list.description %>
-</p>
-<p>
-  <strong>Assigned To:</strong>
-  <%= @list.user.username  %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.list.list_date", :default => t("activerecord.labels.list_date", :default => "List date")) %>:</b>
+          <%= @list.list_date %>
+        </p>
 
-<p>
-  <%= link_to "Edit", edit_list_path(@list) %> |
-  <%= link_to "Destroy", @list, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", lists_path %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.list.description", :default => t("activerecord.labels.description", :default => "Description")) %>:</b>
+          <%= @list.description %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.list.assigned_to", :default => t("activerecord.labels.assigned_to", :default => "Assigned to")) %>:</b>
+          <%= @list.assigned_to %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_list_path(@list), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), list_path(@list), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

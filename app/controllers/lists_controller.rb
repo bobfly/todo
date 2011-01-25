@@ -2,7 +2,11 @@ class ListsController < ApplicationController
   before_filter :require_user
 
   def index
+    if current_user.admin?
+      @lists = List.where(:user_id => current_user.id )
+    else
     @lists = List.where(:assigned_to => current_user.id)
+    end
   end
 
   def show
