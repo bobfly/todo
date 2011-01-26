@@ -7,7 +7,13 @@
 </div>
 <div class="block notice">
   <h3>Simple Block</h3>
-  <div class="content">
-    <p>Place to hold items</p>
+  <%#= f.fields_for :items do |item| %>
+    <table>
+      <tr>
+        <th><%#= item.label :name %></th>
+        <th><%#= item.label :quantity %></th>
+      </tr>
+    </table>
+        <%# end %>
+  <%#= link_to t("web-app-theme.add_new", :default => "Add New"), add_item_path(@list.id) %>
   </div>
-</div>

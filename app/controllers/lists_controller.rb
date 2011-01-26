@@ -34,7 +34,9 @@ class ListsController < ApplicationController
 
   def update
     @list = List.find(params[:id])
+    @list.items.build(params[:list][:items])
     if @list.update_attributes(params[:list])
+      @list.save
       flash[:notice] = "Successfully updated list."
       redirect_to list_url
     else
@@ -47,5 +49,13 @@ class ListsController < ApplicationController
     @list.destroy
     flash[:notice] = "Successfully destroyed list."
     redirect_to lists_url
+  end
+
+  def edit_items_add
+    @list = List.find(params[:id])
+    @list.update_attributes(params[:list])
+    @list.items.build()
+
+    render :edit
   end
 end

@@ -14,6 +14,8 @@ Todo::Application.routes.draw do
   match '/login', :to => 'user_sessions#new'
   match '/logout', :to => 'user_sessions#destroy'
 
+  match '/add_item/:id', :to => 'lists#edit_items_add', :as => "add_item"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
